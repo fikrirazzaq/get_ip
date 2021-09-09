@@ -9,6 +9,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import java.net.NetworkInterface
 import java.util.*
+
 /** GetIpPlugin */
 class GetIpPlugin: FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
@@ -53,7 +54,7 @@ class GetIpPlugin: FlutterPlugin, MethodCallHandler {
             } else {
               if (!isIPv4) {
                 val delim = sAddr.indexOf('%') // drop ip6 zone suffix
-                return if (delim < 0) sAddr.uppercase() else sAddr.substring(0, delim).uppercase()
+                return if (delim < 0) sAddr.toUpperCase() else sAddr.substring(0, delim).toUpperCase()
               }
             }
           }
